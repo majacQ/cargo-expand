@@ -385,8 +385,7 @@ fn apply_args(cmd: &mut Command, args: &Args, color: &Coloring, outfile: &Path) 
 
     line.arg("-o");
     line.arg(outfile);
-    line.arg("-Zunstable-options");
-    line.arg("--pretty=expanded");
+    line.arg("-Zunpretty=expanded");
 
     if args.verbose {
         let mut display = line.clone();
@@ -444,6 +443,7 @@ fn ignore_cargo_err(line: &str) -> bool {
          output file name will be adapted for each output type",
         "warning emitted",
         "warnings emitted",
+        ") generated ",
     ];
     for s in &discarded_lines {
         if line.contains(s) {
